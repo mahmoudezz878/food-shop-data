@@ -4,7 +4,6 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
-  JoinColumn,
   BaseEntity,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -21,9 +20,9 @@ export class Product extends BaseEntity {
   name: string;
 
   @Column({
-    nullable: true
+    nullable: true,
   })
-  imageUrl:  string;
+  imageUrl: string;
 
   @Column()
   price: string;

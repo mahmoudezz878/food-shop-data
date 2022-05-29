@@ -9,7 +9,6 @@ router.get("/", async (req, res) => {
       category: true,
     },
   });
-  console.log("products", products);
   return res.json(products);
 });
 

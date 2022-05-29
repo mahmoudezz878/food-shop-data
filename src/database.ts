@@ -1,10 +1,10 @@
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
 import "reflect-metadata";
-import {Category} from "./entities/category";
-import {Product} from "./entities/products";
-import {Order} from "./entities/orders";
-import {OrderItem} from "./entities/orderItem";
+import { Category } from "./entities/category";
+import { Product } from "./entities/products";
+import { Order } from "./entities/orders";
+import { OrderItem } from "./entities/orderItem";
 dotenv.config();
 
 export const AppDataSource = new DataSource({

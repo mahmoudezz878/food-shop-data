@@ -25,6 +25,6 @@ export class Category extends BaseEntity {
 
   @OneToMany(() => Product, (product) => product.category, {
     onDelete: "CASCADE",
-  }) 
+  })
   products: Product[];
 }

@@ -5,10 +5,17 @@ import { Product } from "../entities/products";
 
 const router = express.Router();
 
+router.get("/", async (req, res) => {
+  const orders = await Order.find({
+    relations: {
+      orderItems: { product: true },
+    },
+  });
+  return res.json(orders);
+});
+
 router.post("/", async (req, res) => {
   const { name, mobile, address, city, items } = req.body;
-
-  console.log(req.body);
 
   const order = Order.create({
     name,
@@ -30,22 +37,7 @@ router.post("/", async (req, res) => {
     await orderItem.save();
   }
 
-  // for each item in items
-  // search for productId in product table
-  // create OrderListItem with product, order and quantity
-  //save orderListItem
-
   return res.json(order);
 });
-
-// router.get("/", async (req, res) => {
-//   const products = await Order.find({
-//     relations: {
-//       category: true,
-//     },
-//   });
-//   console.log('products', products)
-//   return res.json(products);
-// });
 
 export { router as ordersRouter };
